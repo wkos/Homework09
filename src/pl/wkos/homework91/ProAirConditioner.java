@@ -1,25 +1,17 @@
 package pl.wkos.homework91;
 
 public class ProAirConditioner extends AirConditioner {
-    private double volumeCooling = 2;
-    private double endTemperature;
-    private double accuracy;
+    private final double VOLUMECOOLING = 2;
 
-    public ProAirConditioner(double endTemperature, double accuracy) {
-        super();
-        this.endTemperature = endTemperature;
-        this.accuracy = accuracy;
+    public ProAirConditioner(double endTemperature, double accuracy, Room room) {
+        super(endTemperature, accuracy, room);
     }
 
-    public double getAccuracy() {
-        return accuracy;
+    public void changeTemperature() {
+        room.setCurrentTemperature(room.getCurrentTemperature() - VOLUMECOOLING / room.getCubature());
     }
 
     public double getVolumeCooling() {
-        return volumeCooling;
-    }
-
-    public double getEndTemperature() {
-        return endTemperature;
+        return VOLUMECOOLING;
     }
 }
